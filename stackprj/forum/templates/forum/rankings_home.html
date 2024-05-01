@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
@@ -7,12 +6,37 @@
 {% block content %}
 
 <style>
-    body {
-        padding-top: 70px; /* Adjust based on your navbar's height */
+    .rankings-container {
+        padding-top: 70px; /* Adjust based on your navbar's height, but scoped to this container only */
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .rankings-container .activities-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .rankings-container .activity-card {
+        width: 300px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        font-size: 1.3em; /* Increase text size */
+    }
+    .rankings-container .activity-info h2 {
+        color: #0077cc;
+        font-size: 1.2em; /* Optionally increase heading size within card */
+    }
+    .rankings-container .activity-info p,
+    .rankings-container .activity-info ul,
+    .rankings-container .activity-info li {
+        font-size: 1.1em; /* Ensure consistency in text size */
     }
 </style>
 
-<div class="container">
+<div class="rankings-container">
     <div class="activities-grid">
         {% for activity in activities %}
         <a href="{% url 'forum:this_space' activity.id %}" style="text-decoration: none; color: inherit;">
@@ -20,7 +44,7 @@
             <div class="activity-info">
                 <h2>{{ activity.name }}</h2>
                 <p>{{ activity.location }}</p>
-                <p>Average Rating: {{ activity.average_rating }}</p>
+                <p>Average Rating: {{ space.average_rating|default:"5.0" }}</p>
                 <ul>
                     {% for amenity in activity.amenities %}
                     <li>{{ amenity }}</li>
@@ -32,4 +56,5 @@
         {% endfor %}
     </div>
 </div>
+
 {% endblock %}

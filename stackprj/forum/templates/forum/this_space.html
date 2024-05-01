@@ -19,6 +19,7 @@
         border-radius: 8px;
         box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         border: 1px solid #ccc;
+        font-size: 2.0em; /* Increase text size */
     }
     .space-details-container .header {
         background-color: #0077cc;
@@ -88,7 +89,7 @@
         <p>Capacity: {{ space.capacity }}</p>
         <p>Approved: {{ space.approved|yesno:"Yes,No" }}</p>
         <p>Number of Reviews: {{ space.numreviews|default:"Not available" }}</p>
-        <p>Rating: {{ space.rating|default:"Not available" }}</p>
+        <p>Rating: {{ space.average_rating|default:"5.0" }}</p>
         <p>Number of Visits: {{ space.numvisits|default:"Not available" }}</p>
 
         <div>

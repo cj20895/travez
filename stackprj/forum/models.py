@@ -78,14 +78,7 @@ class Space(Base):
     amenities = relationship("Amenity", cascade="all,delete", back_populates="space")
     tags = relationship("Tag", cascade="all,delete", back_populates="space")
         
-    # Calculate average rating using a column property
-    # average_rating = column_property(select([func.coalesce(func.avg(Review.rating), 0)]).where(Review.space_id == id).correlate_except(Review))
-    # average_rating = column_property(
-    #     select([func.coalesce(func.avg(Review.rating), 0).label('average_rating')])
-    #     .where(Review.space_id == id)
-    #     .correlate_except(Review)
-    #     .scalar_subquery()
-    # )
+    average_rating = Column(Float)
 
 
     def to_json(self):
@@ -104,7 +97,7 @@ class Space(Base):
             "privacy": self.avgprivacy,
             "lighting": self.avglighting,
             "amenities_rating": self.avgamenities,
-            # "average_rating": self.average_rating,
+            "average_rating": self.average_rating,
 
         }
 
