@@ -1,0 +1,78 @@
+{% extends "HRbase.html" %}
+
+{% block content %}
+<div class="main"> 
+    <div class="table-scroll">
+        <table class = "mdl-data-table mdl-js-data-table mdl-data-table">
+            <thead>
+                {% if people %}
+                <tr>
+                    <th>First Name</th>
+                    <th>Origination City</th>
+                    <th>Origination State</th>
+                    <th>Destination City</th>
+                    <th>Destination State</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Taking Passengers</th>
+                    <th>Seats Available</th>
+                </tr>
+                {% endif %}
+            </thead>
+            {% for person in people %}
+            <tr>
+                <td>{{ person.first_name }}</td> 
+                <td>{{ person.origination }}</td>
+                <td>{{ person.origination_state }}</td> <!-- Added origin state -->
+                <td>{{ person.destination_city }}</td> 
+                <td>{{ person.destination_state }}</td> 
+                <td>{{ person.date }}</td> 
+                <td>{{ person.time }}</td> 
+                <td>{{ person.taking_passengers }}</td>
+                <td>{{ person.seats_available }}</td> 
+            </tr>
+            {% endfor %} 
+        </table>
+    </div>
+</br>
+
+<form id="ai" class="menu-item" method="post" action="{% url 'rides:ai_interaction' %}">
+    {% csrf_token %}
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty" style="width:300px;">
+        <textarea class="mdl-textfield__input" type="text" rows="4" id="user_input" name="user_input" style="white-space: pre-wrap; overflow-wrap: break-word;"></textarea>
+        <label class="mdl-textfield__label" for="user_input" style="white-space: pre-wrap; overflow-wrap: break-word;">Search via natural language... Example: "Hi, I am planning on going from Madison to Milwaukee. Are there any rides going in that direction?"</label>
+    </div>
+    <!-- Search button in its own div, making it a block-level element and thus pushing it underneath the textarea -->
+    <div style="text-align:center; margin-top: -20px;">
+        <button type="submit" value="Submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Search</button>
+    </div>
+</form>
+
+<form action="{% url 'rides:index' %}" method="get">
+    <!-- Simple Textfield -->
+    <!-- <form action="{% url 'rides:index' %}" method="get">
+        <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="sample1">
+        <label class="mdl-textfield__label" for="sample1">Text...</label>
+        </div> -->
+    {{ form }}
+    <!-- <input  > -->
+    <!-- Colored raised button -->
+<button type="submit" value="Submit" onclick="return checkForm()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+    Search
+  </button>
+    <!-- <button type="submit" class="button" onclick="return checkForm()">
+        Submit
+      </button> -->
+    </br>
+</br>
+</br>
+    </form>
+</div> 
+
+
+
+    <div style="height: 50px;"></div> <!-- Adjust the height as needed -->
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+<!-- prepare/cultural_norms.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Cultural Norms</h1>
+<form action="{% url 'cultural_norms' %}" method="get">
+    <label for="city">Enter a city:</label>
+    <input type="text" id="city" name="city">
+    <button type="submit">Search</button>
+</form>
+{% if city_name %}
+    <p>Results for {{ city_name }}: <a href="{% url 'city_forum' city_name %}">View forum</a></p>
+{% endif %}
+{% endblock %}

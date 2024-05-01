@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rankings{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        padding-top: 70px; /* Adjust based on your navbar's height */
+    }
+</style>
+
+<div class="container">
+    <div class="activities-grid">
+        {% for activity in activities %}
+        <a href="{% url 'forum:this_space' activity.id %}" style="text-decoration: none; color: inherit;">
+        <div class="activity-card">
+            <div class="activity-info">
+                <h2>{{ activity.name }}</h2>
+                <p>{{ activity.location }}</p>
+                <p>Average Rating: {{ activity.average_rating }}</p>
+                <ul>
+                    {% for amenity in activity.amenities %}
+                    <li>{{ amenity }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

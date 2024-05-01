@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Interaction</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        .response {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Chatbox Interaction</h1>
+
+        <!-- Chatbox form for user input -->
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="user_input">Ask the AI:</label><br>
+            <textarea id="user_input" name="user_input" rows="4" cols="50" placeholder="Type your question here..."></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Displaying the AI response -->
+        {% if ai_text %}
+            <div class="response">
+                <p><strong>Your Question:</strong> {{ user_input }}</p>
+                <p><strong>AI Response:</strong> {{ ai_text }}</p>
+            </div>
+        {% endif %}
+    </div>
+    <!-- Blank spacer div -->
+<div style="height: 100px;"></div> <!-- Adjust the height as needed -->
+</body>
+
+</html>

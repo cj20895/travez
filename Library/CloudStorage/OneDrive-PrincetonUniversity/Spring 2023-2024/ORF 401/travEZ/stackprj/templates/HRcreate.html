@@ -1,0 +1,18 @@
+{% extends "HRbase.html" %}
+
+{% block content %}
+
+
+<form action="{% url 'rides:create' %}" method="post">
+    {% csrf_token %}
+    {{ new_ride_form }}
+    <button type="submit" value="Submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+        Submit
+    </button>
+</form>
+
+<!-- Blank spacer div -->
+<div style="height: 50px;"></div> <!-- Adjust the height as needed -->
+
+
+{% endblock %}

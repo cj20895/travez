@@ -1,0 +1,400 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Travel<span> EZ </span> with one platform</h1>
+        <p class="hero-paragraph">
+            We make travel planning EZ by providing a platform that connects you to travlers, plans and prepares you for your stay. Let's make travel planning as relaxing as the vacation itsself.
+        </p>
+        <div class="hero-options">
+            <a href="{% url 'itineraries:itinerary_list' %}" class="btn btn-developers">Create Itineraries</a>
+            <a href="#" class="btn btn-businesses">Friend Forum</a>
+            <a href="{% url 'prepare:prepare_home' %}" class="btn btn-developers" style="margin-left: 5px;">Prepare for Travel</a>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="for-developers">
+   <div class="container">
+       <div class="section-head">
+           <h2 class="section-title">For travlers, by travlers
+           </h2>
+           <div class="section-line"></div>
+           <p class="section-description">TravEZ is a <a href="#">open community</a> for anyone that is seeking an easier way to plan travel. We help you plan a trip to your taste, inform you on overlooked need-to-knows before travel, and let you keep up with your friends travels! Share knowledge and interact with people travelling to the same place, or find knowledge from those who've already been. 
+           </p>
+       </div>
+       <div class="options">
+           <div class="option">
+               <div class="option-icon">
+                   <img src="https://cdn.sstatic.net/Img/home/public-qa.svg?v=d82acaa7df9f" alt="Public Q & A">
+               </div>
+               <div class="option-title">
+                    <a href="{% url 'itineraries:itinerary_list' %}">Itineraries</a>
+                   
+               </div>
+               <div class="option-description">
+                   Having trouble finding activities to do that best suit your interest? Did you stay at the museum for too long and need to reconfigure your itinerary? Let us put together the best plan for you while alowing you to quickly overcome the unforseen happenings while traveling. Find out what itineraries similar people enjoyed and post some of your own. 
+                   <a href="#">Sign up</a> for an account.
+               </div>
+               <div class="option-button">
+                   <a href="{% url 'itineraries:itinerary_list' %}" class="option-link btn btn-dark-blue">
+                       Create an Itinerary
+                   </a>
+               </div>
+           </div>
+           <div class="option">
+               <div class="option-icon">
+                   <img src="https://cdn.sstatic.net/Img/home/private-qa.svg?v=2c1de180b6d7" alt="Private Q & A">
+               </div>
+               <div class="option-title">
+                   Prepare
+               </div>
+               <div class="option-description">
+                   Find all the information you need to know before travelling from how to use transporation to cultural practices. 
+               </div>
+               <div class="option-button">
+                   <a href= "{% url 'prepare:prepare_home' %}" class="option-link btn btn-orange">
+                       Browse by city
+                   </a>
+               </div>
+           </div>
+           <div class="option">
+               <div class="option-icon">
+                   <img src="https://cdn.sstatic.net/Img/home/jobs.svg?v=931d6c0863ee" alt="Browse jobs
+">
+               </div>
+               <div class="option-title">
+                   Friends Forum
+               </div>
+               <div class="option-description">
+                   Keep up to date with your friends. See, like, and comment on their recent travels, tips, and reccomendations while sharing some of your own.
+
+
+               </div>
+               <div class="option-button">
+                   <a href="#" class="option-link btn btn-dark-blue">
+                       Enter
+                   </a>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!--- <section class="for-businesses">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">For businesses, by developers</h2>
+            <div class="section-line"></div>
+            <p class="section-description">Our mission is to help developers write the script of the future. This means helping you find and hire skilled developers for your business and providing them the tools they need to share knowledge and work effectively.</p>
+        </div>
+
+
+
+        <div class="options">
+            <div class="option">
+                <div class="option-icon">
+                    <img src="https://cdn.sstatic.net/Img/home/private-questions.svg?v=a4f1cfb08f7e" alt="Private Q&A">
+                </div>
+                <div class="option-description">
+                    Quickly find and share internal knowledge with <a href="#" class="option-link">Private Q&A</a>
+                </div>
+            </div>
+            <div class="option">
+                <div class="option-icon">
+                    <img src="https://cdn.sstatic.net/Img/home/find-candidate.svg?v=9099aa106ad3" alt="Talent solutions">
+                </div>
+                <div class="option-description">
+                    Find the perfect candidate for your growing technical team with <a href="#" class="option-link">Talent solutions</a>
+
+
+                </div>
+            </div>
+            <div class="option">
+                <div class="option-icon">
+                    <img src="https://cdn.sstatic.net/Img/home/accelerate.svg?v=9d4c2786ff02" alt=" Advertising platform">
+                </div>
+                <div class="option-description">
+                    Accelerate the discovery of your products or services through our <a href="#" class="option-link">Advertising platform</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section> 
+-->
+
+
+<section class="teams">
+    <div class="container">
+        <div class="teams-head">
+            <h2 class="teams-title">Unlock siloed features with TravEZ+
+            </h2>
+            <p class="teams-description"> Housing, events, and flights aren't easy to do with at least three other platforms to manage. TravEZ+ integrates all of that information in one EZ to use website. We'll give you exclusive insights on events happening in real time, allow you to see all your flight information in one place, and give you insights on the best location for your specific needs.  Wikis, chat messages, or formal documentation for knowledge management aren’t effective.
+            </p>
+            <div class="teams-details">
+                <a href="#" class="btn btn-orange">Learn More</a>
+            </div>
+        </div>
+
+        <div class="teams-plan">
+            <div class="card card-basic">
+                <div class="card-header">
+                    <h2 class="plan-type">Basic</h2>
+                    <p class="plan-description">Best for individual use</p>
+                </div>
+               <div class="card-body">
+                   <div class="plan-price">
+                       <div class="price">$6 USD</div>
+                       <span class="per">per month</span>
+                   </div>
+                   <div class="plan-features">
+                       <div class="plan-feature">
+                           <i class="far fa-calendar-alt"></i>
+                           <span class="plan-text">Free 30 day trial</span>
+                       </div>
+                       <div class="plan-feature">
+                           <i class="fab fa-keycdn"></i>
+                           <span class="plan-text">Your own curated travel with all the components to make it EZer </span>
+                       </div>
+                       <div class="plan-feature">
+                           <i class="fas fa-archive"></i>
+                           <span class="plan-text">Fully searchable archive</span>
+                       </div>
+                   </div>
+               </div>
+                <div class="card-footer">
+                    <!-- <a href="#" class="btn btn-card">Get started for free</a> -->
+                </div>
+
+            </div>
+
+            <div class="card card-business">
+                <div class="card-most-used">
+                    <span>MOST USED</span>
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="card-header">
+                    <h2 class="plan-type">Business</h2>
+                    <p class="plan-description">Best for smaller group trips. Collect everyones information and interests to make the best plan based on overall desires. </p>
+                </div>
+                <div class="card-body">
+                    <div class="plan-price">
+                        <div class="price">$12 USD
+                        </div>
+                        <span class="per">per member / month</span>
+                    </div>
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-key"></i>
+                            <span class="plan-text">Single sign-on (SSO) with SAML</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="far fa-chart-bar"></i>
+                            <span class="plan-text">Reporting and analytics on each person's likes and interests</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-plus-square"></i>
+                            <span class="plan-text">Priority customer support</span>
+                        </div>
+                      <!--- <div class="plan-feature">
+                            <i class="fas fa-star"></i>
+                            <span class="plan-text">99.5% uptime -->
+</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-plus"></i>
+                            <span class="plan-text">All the features of Basic tier</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="card-footer"> -->
+                    <!-- <a href="#" class="btn btn-card">Get started</a> -->
+                </div>
+
+            </div>
+
+            <div class="card card-enterprise">
+                <div class="card-header">
+                    <h2 class="plan-type">Enterprise</h2>
+                    <p class="plan-description">Best for large firms and insitutions. Mange travel accomodations for employees or individuals who are connected to your enterprise. Optimize their needs with your capabilities while giving them access to a platform to mesh their scheduled responsibilites with useable downtime for enjoyable itineraries. 
+
+                    </p>
+                </div>
+                <div class="card-body">
+                    <div class="plan-price">
+                        <div class="price">Custom pricing </div>
+                        <span class="per">Let’s talk about what you need</span>
+                    </div>
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-key"></i>
+                            <span class="plan-text">Single sign-on with AD or SAML</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-mountain"></i>
+                            <span class="plan-text">Host on your firm servers – or our private managed cloud</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-code"></i>
+                            <span class="plan-text">Integration with Concur</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-user"></i>
+                            <span class="plan-text">Your own customer success and community building representative</span>
+                        </div>
+                       <!--  <div class="plan-feature">
+                            <i class="fas fa-star"></i>
+                            <span class="plan-text">99.5% uptime SLA and priority support</span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <!-- <a href="#" class="btn btn-card">Request a demo</a> -->
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="teams-footer">
+            <a class="teams-footer-item">
+                <img src="https://cdn.sstatic.net/Img/product/teams/endorsements/g2.svg?v=670bf9279910" alt="">
+                <div class="teams-footer-text"><strong>Leader</strong> <span>Summer 2020</span> </div>
+            </a>
+            <a class="teams-footer-item">
+                <img src="https://cdn.sstatic.net/Img/product/teams/endorsements/g2.svg?v=670bf9279910" alt="">
+                <div class="teams-footer-text"><strong>Users Love Us</strong> </div>
+            </a>
+            <a class="teams-footer-item">
+                <img src="https://cdn.sstatic.net/Img/product/teams/endorsements/fastco.svg?v=5ebc802a76c7" alt="">
+                <div class="teams-footer-text"><strong>Most Innovative Companies</strong> <span>2019</span> </div>
+            </a>
+        </div>
+
+
+    </div>
+</section>
+<!-- 
+<section class="hire">
+    <div class="container">
+        <div class="hire-content">
+            <div class="hire-item">
+                <img src="https://cdn.sstatic.net/Img/home/find-candidate.svg?v=9099aa106ad3" alt="" class="hire-icon">
+                <h4 class="hire-item-title">Hire your technical talent</h4>
+                <p class="hire-item-description">We help expand your technical hiring strategy to promote your employer brand and highlight relevant open roles to our community of over 100 million developers and technologists.</p>
+                <a href="#" class="btn btn-orange">Stack Overflow Talent</a>
+            </div>
+            <div class="hire-item">
+                <img src="https://cdn.sstatic.net/Img/home/accelerate.svg?v=9d4c2786ff02" alt="" class="hire-icon">
+                <h4 class="hire-item-title">Reach developers worldwide
+                </h4>
+                <p class="hire-item-description">Use the world’s largest resource for people who code to help you increase awareness and showcase your product or service across Stack Overflow’s network of Q&A sites. </p>
+                <a href="#" class="btn btn-orange">Stack Overflow Advertising</a>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+<section class="questions">
+    <div class="container">
+       <div class="questions-content">
+           <div class="questions-header">
+               <h3 class="question-title">Uncertainties are everywhere, answers are on TravEZ</h3>
+           </div>
+           <div class="questions-body">
+               <div class="questions-body-items">
+                   <div class="questions-body-item" data-id="0">
+                       <img src="https://cdn.sstatic.net/Img/home/ask-a-question.svg?v=f4f2050b0297" alt="" class="question-item-icon">
+                       <div class="question-item-text">Ask a question</div>
+                       <div class="question-arrow-right"></div>
+                   </div>
+                   <div class="questions-body-item"  data-id="1">
+                       <img src="https://cdn.sstatic.net/Img/home/votes.svg?v=748a8f48a8e2" alt="" class="question-item-icon">
+                       <div class="question-item-text">Vote on everything</div>
+                       <div class="question-arrow-right"></div>
+                   </div >
+                   <div class="questions-body-item"  data-id="2">
+                       <img src="https://cdn.sstatic.net/Img/home/answer.svg?v=4cd8048a676c" alt="" class="question-item-icon">
+                       <div class="question-item-text">Answer questions</div>
+                       <div class="question-arrow-right"></div>
+                   </div>
+               </div>
+               <div class="questions-body-item-content">
+                   <img src="https://cdn.sstatic.net/Img/home/illo-feats-vote.svg?v=9d2eb0efdc17" alt="" class="question-item-content-img">
+                   <h4 class="question-item-content-text">
+                       Accept the answer which solved your problem to let others benefit from the valuable information.
+                   </h4>
+                   <a href="#" class="btn btn-orange question-item-content-btn">Create an account</a>
+               </div>
+               <div class="questions-body-items">
+                   <div class="questions-body-item"  data-id="3">
+                       <img src="https://cdn.sstatic.net/Img/home/tags.svg?v=913379eb09eb" alt="" class="question-item-icon">
+                       <div class="question-item-text">Tag your question</div>
+                       <div class="question-arrow-left"></div>
+                   </div>
+                   <div class="questions-body-item"  data-id="4">
+                       <img src="https://cdn.sstatic.net/Img/home/accept.svg?v=27d5be078970" alt="" class="question-item-icon">
+                       <div class="question-item-text">Interact with Friends</div>
+                       <div class="question-arrow-left"></div>
+                   </div>
+                   <div class="questions-body-item"  data-id="5">
+                       <img src="https://cdn.sstatic.net/Img/home/get-recognized.svg?v=3b339d9aa10c" alt="" class="question-item-icon">
+                       <div class="question-item-text">Get recognized</div>
+                       <div class="question-arrow-left"></div>
+                   </div>
+               </div>
+           </div>
+       <!--   <div class="questions-footer">
+               <h3 class="question-title">Learn and travel with TravEZ</h3>
+               <div class="questions-grid">
+                   <div class="questions-grid-item">
+                       <div class="grid-item-img">
+                           <img src="https://cdn.sstatic.net/Img/home/developer.svg?v=b930de7967a7" alt="">
+                       </div>
+                       <h4 class="grid-item-title">Write the script of the future</h4>
+                       <p class="grid-item-description">Get your coding questions answered to learn, build, and level up whether you’re beginning with
+                           <a href="#">JavaScript</a> or a <a href="#">React</a> professional.
+                       </p>
+                   </div>
+                   <div class="questions-grid-item">
+                       <div class="grid-item-img">
+                           <img src="https://cdn.sstatic.net/Img/home/open-source.svg?v=847b604fd2ab" alt="">
+                       </div>
+                       <h4 class="grid-item-title">Support open source
+                       </h4>
+                       <p class="grid-item-description">Reach users of your project by following tags, answering newcomer questions, and empowering experts in the community.
+                           <a href="#"> Read the curl project creator’s story.</a>
+
+
+                       </p>
+                   </div>
+                   <div class="questions-grid-item">
+                       <div class="grid-item-img">
+                           <img src="https://cdn.sstatic.net/Img/home/advocate.svg?v=4b03cfb93502" alt="">
+                       </div>
+                       <h4 class="grid-item-title">Acquire and share knowledge
+                       </h4>
+                       <p class="grid-item-description">Answer questions and <a href="#">gain insights</a> from an audience of developers using your technology on Stack Overflow.
+                       </p>
+                   </div>
+                   <div class="questions-grid-item">
+                       <div class="grid-item-img">
+                           <img src="https://cdn.sstatic.net/Img/home/career-switcher.svg?v=a41416ff19df" alt="" >
+                       </div>
+                       <h4 class="grid-item-title">Find career opportunities
+                       </h4>
+                       <p class="grid-item-description">Create a profile that shows off your expertise and credentials to help you make your next move. Start your
+                           <a href="#">Developer Story</a>.
+                       </p>
+                   </div>
+               </div>
+           </div> --> 
+       </div>
+    </div>
+</section>
+
+{% endblock content %}

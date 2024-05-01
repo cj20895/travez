@@ -1,0 +1,183 @@
+[
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "origination": "New York",
+      "origination_state": "NY",
+      "destination_city": "Los Angeles",
+      "destination_state": "CA",
+      "date": "2024-05-01",
+      "time": "12:00:00",
+      "taking_passengers": true,
+      "pet_friendly": false,
+      "accessible": true,
+      "seats_available": 3,
+      "vehicle_type": "SUV"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "origination": "Chicago",
+      "origination_state": "IL",
+      "destination_city": "Houston",
+      "destination_state": "TX",
+      "date": "2024-05-02",
+      "time": "14:30:00",
+      "taking_passengers": true,
+      "pet_friendly": true,
+      "accessible": false,
+      "seats_available": 2,
+      "vehicle_type": "Minivan"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "Michael",
+      "last_name": "Johnson",
+      "origination": "Seattle",
+      "origination_state": "WA",
+      "destination_city": "San Francisco",
+      "destination_state": "CA",
+      "date": "2024-05-03",
+      "time": "10:00:00",
+      "taking_passengers": true,
+      "pet_friendly": false,
+      "accessible": false,
+      "seats_available": 1,
+      "vehicle_type": "Sedan"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "Emily",
+      "last_name": "Brown",
+      "origination": "Boston",
+      "origination_state": "MA",
+      "destination_city": "Miami",
+      "destination_state": "FL",
+      "date": "2024-05-04",
+      "time": "08:00:00",
+      "taking_passengers": true,
+      "pet_friendly": true,
+      "accessible": true,
+      "seats_available": 4,
+      "vehicle_type": "Van"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "David",
+      "last_name": "Wilson",
+      "origination": "Dallas",
+      "origination_state": "TX",
+      "destination_city": "Phoenix",
+      "destination_state": "AZ",
+      "date": "2024-05-05",
+      "time": "16:00:00",
+      "taking_passengers": true,
+      "pet_friendly": false,
+      "accessible": true,
+      "seats_available": 2,
+      "vehicle_type": "Truck"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "Sophia",
+      "last_name": "Lee",
+      "origination": "Atlanta",
+      "origination_state": "GA",
+      "destination_city": "Denver",
+      "destination_state": "CO",
+      "date": "2024-05-06",
+      "time": "09:30:00",
+      "taking_passengers": true,
+      "pet_friendly": true,
+      "accessible": false,
+      "seats_available": 3,
+      "vehicle_type": "SUV"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "Olivia",
+      "last_name": "Martin",
+      "origination": "Houston",
+      "origination_state": "TX",
+      "destination_city": "New Orleans",
+      "destination_state": "LA",
+      "date": "2024-05-07",
+      "time": "11:00:00",
+      "taking_passengers": true,
+      "pet_friendly": false,
+      "accessible": true,
+      "seats_available": 2,
+      "vehicle_type": "Minivan"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "Daniel",
+      "last_name": "Anderson",
+      "origination": "San Diego",
+      "origination_state": "CA",
+      "destination_city": "Las Vegas",
+      "destination_state": "NV",
+      "date": "2024-05-08",
+      "time": "13:00:00",
+      "taking_passengers": true,
+      "pet_friendly": true,
+      "accessible": true,
+      "seats_available": 3,
+      "vehicle_type": "Sedan"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "Emma",
+      "last_name": "Garcia",
+      "origination": "Miami",
+      "origination_state": "FL",
+      "destination_city": "Orlando",
+      "destination_state": "FL",
+      "date": "2024-05-09",
+      "time": "15:30:00",
+      "taking_passengers": true,
+      "pet_friendly": false,
+      "accessible": false,
+      "seats_available": 1,
+      "vehicle_type": "Other"
+    }
+  },
+  {
+    "model": "stackusers.person",
+    "fields": {
+      "first_name": "James",
+      "last_name": "Rodriguez",
+      "origination": "Los Angeles",
+      "origination_state": "CA",
+      "destination_city": "San Francisco",
+      "destination_state": "CA",
+      "date": "2024-05-10",
+      "time": "17:00:00",
+      "taking_passengers": true,
+      "pet_friendly": true,
+      "accessible": true,
+      "seats_available": 2,
+      "vehicle_type": "Van"
+    }
+  }
+]
+
