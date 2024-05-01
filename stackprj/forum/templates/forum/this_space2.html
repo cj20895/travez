@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ space.name }} Details{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        padding-top: 70px; /* Adjust based on your navbar's height */
+    }
+</style>
+
+
+<div class="container" style="font-family: Arial, sans-serif; line-height: 1.6; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border: 1px solid #ccc;">
+    <div style="background-color: #007BFF; color: white; padding: 10px; text-align: center; border-radius: 5px;">
+        <h1>{{ space.name }}</h1>
+    </div>
+    <p>Type: {{ space.type }}</p>
+    <p>Location: {{ space.location }}</p>
+    <p>Capacity: {{ space.capacity }}</p>
+    <p>Approved: {{ space.approved|yesno:"Yes,No" }}</p>
+    <p>Number of Reviews: {{ space.numreviews|default:"Not available" }}</p>
+    <p>Rating: {{ space.rating|default:"Not available" }}</p>
+    <p>Number of Visits: {{ space.numvisits|default:"Not available" }}</p>
+
+    <div>
+        <h3>Amenities</h3>
+        <ul>
+            {% if space.amenities %}
+                {% for amenity in space.amenities %}
+                    <li>{{ amenity }}</li>
+                {% endfor %}
+            {% else %}
+                <li>No amenities listed</li>
+            {% endif %}
+        </ul>
+    </div>
+    <div>
+        <h3>Reviews</h3>
+        {% if space.reviews %}
+            {% for review in space.reviews %}
+                <div style="margin-bottom: 20px; border: 1px solid #ccc; padding: 10px;">
+                    <p><strong>Rating:</strong> {{ review.rating }} stars</p>
+                    <p><strong>Review:</strong> {{ review.content }}</p>
+                    <p><strong>Cleanliness:</strong> {{ review.cleanliness }} / 5</p>
+                    <p><strong>Noisiness:</strong> {{ review.noisiness }} / 5</p>
+                    <p><strong>Privacy:</strong> {{ review.privacy }} / 5</p>
+                    <p><strong>Lighting:</strong> {{ review.lighting }} / 5</p>
+                    <p><strong>Amenities Rating:</strong> {{ review.amenities_rating }} / 5</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No reviews available</p>
+        {% endif %}
+    </div>
+    <hr>
+    <div>
+        <h2>Add a Review</h2>
+        <form action="{% url 'forum:this_space' space.id %}" method="post">
+            {% csrf_token %}
+            <label for="overall_rating">Overall Rating:</label>
+            <select name="overall_rating" id="overall_rating">
+                <option value="1" selected>1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+            <br>
+            <label for="cleanliness">Cleanliness:</label>
+            <select name="cleanliness" id="cleanliness">
+                <option value="1" selected>1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+            <br>
+            <label for="noisiness">Noisiness:</label>
+            <select name="noisiness" id="noisiness">
+                <option value="1" selected>1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+
+            </select>
+            <br>
+            <label for="lighting">Lighting:</label>
+            <select name="lighting" id="lighting">
+                <option value="1" selected>1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+            <br>
+            <label for="privacy">Privacy:</label>
+            <select name="privacy" id="privacy">
+                <option value="1" selected>1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+            <br>
+            <label for="amenities_rating">Amenities:</label>
+            <select name="amenities_rating" id="amenities_rating">
+                <option value="1" selected>1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+            <br>
+            <label for="content">Tell us about your experience:</label>
+            <textarea name="content" id="content" rows="4" cols="50"></textarea>
+            <br>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

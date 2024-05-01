@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ space.name }} Details{% endblock %}
+
+{% block content %}
+
+<style>
+    .space-details-container {  /* New class for scoping */
+        padding-top: 70px;
+        background-color: #fafafb;
+        font-family: Arial, sans-serif;
+    }
+    .space-details-container .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        border: 1px solid #ccc;
+    }
+    .space-details-container .header {
+        background-color: #0077cc;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-align: center;
+        border-radius: 5px 5px 0 0;
+    }
+    .space-details-container ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .space-details-container li {
+        padding-bottom: 10px;
+    }
+    .space-details-container h3 {
+        border-bottom: 2px solid #0077cc;
+        padding-bottom: 5px;
+    }
+    .space-details-container .reviews-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .space-details-container .review {
+        flex: 1 1 30%;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        max-width: 360px;
+    }
+    .space-details-container label {
+        font-weight: bold;
+    }
+    .space-details-container textarea,
+    .space-details-container select,
+    .space-details-container input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    .space-details-container button {
+        background-color: #0077cc;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .space-details-container button:hover {
+        background-color: #005fa3;
+    }
+</style>
+
+<div class="space-details-container">
+    <div class="container">
+        <div class="header">
+            <h1>{{ space.name }}</h1>
+        </div>
+        <p>Type: {{ space.type }}</p>
+        <p>Location: {{ space.location }}</p>
+        <p>Capacity: {{ space.capacity }}</p>
+        <p>Approved: {{ space.approved|yesno:"Yes,No" }}</p>
+        <p>Number of Reviews: {{ space.numreviews|default:"Not available" }}</p>
+        <p>Rating: {{ space.rating|default:"Not available" }}</p>
+        <p>Number of Visits: {{ space.numvisits|default:"Not available" }}</p>
+
+        <div>
+            <h3>Amenities</h3>
+            <ul>
+                {% if space.amenities %}
+                    {% for amenity in space.amenities %}
+                        <li>{{ amenity }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No amenities listed</li>
+                {% endif %}
+            </ul>
+        </div>
+        <div>
+            <h3>Reviews</h3>
+            <div class="reviews-container">
+                {% if space.reviews %}
+                    {% for review in space.reviews %}
+                        <div class="review">
+                            <p><strong>Rating:</strong> {{ review.rating }} stars</p>
+                            <p><strong>Review:</strong> {{ review.content }}</p>
+                            <p><strong>Cleanliness:</strong> {{ review.cleanliness }} / 5</p>
+                            <p><strong>Noisiness:</strong> {{ review.noisiness }} / 5</p>
+                            <p><strong>Privacy:</strong> {{ review.privacy }} / 5</p>
+                            <p><strong>Lighting:</strong> {{ review.lighting }} / 5</p>
+                            <p><strong>Amenities Rating:</strong> {{ review.amenities_rating }} / 5</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No reviews available</p>
+                {% endif %}
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2>Add a Review</h2>
+            <form action="{% url 'forum:this_space' space.id %}" method="post">
+                {% csrf_token %}
+                <label for="overall_rating">Overall Rating:</label>
+                <select name="overall_rating" id="overall_rating">
+                    <option value="1" selected>1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <label for="cleanliness">Cleanliness:</label>
+                <select name="cleanliness" id="cleanliness">
+                    <option value="1" selected>1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <label for="noisiness">Noisiness:</label>
+                <select name="noisiness" id="noisiness">
+                    <option value="1" selected>1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <label for="lighting">Lighting:</label>
+                <select name="lighting" id="lighting">
+                    <option value="1" selected>1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <label for="privacy">Privacy:</label>
+                <select name="privacy" id="privacy">
+                    <option value="1" selected>1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <label for="amenities_rating">Amenities:</label>
+                <select name="amenities_rating" id="amenities_rating">
+                    <option value="1" selected>1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <label for="content">Tell us about your experience:</label>
+                <textarea name="content" id="content" rows="4" cols="50"></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

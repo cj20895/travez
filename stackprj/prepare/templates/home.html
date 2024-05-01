@@ -1,0 +1,8 @@
+<!-- prepare/home.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Prepare for Your Trip</h1>
+<p>Select an option to learn more about your destination.</p>
+<a href="{% url 'question-list' %}"><button>Cultural Norms</button></a>
+<a href="{% url 'transportation' %}"><button>Transportation</button></a>
+{% endblock %}

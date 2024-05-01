@@ -1,0 +1,25 @@
+{% extends 'itineraries/itinerary_list.html' %}
+{% block content %}
+<p>Child Template Content - This should override the base template content</p>
+
+<link rel="stylesheet" href="{% static 'itineraries/chat.css' %}">
+<script src="{% static 'itineraries/chat-logic.js' %}" ></script>
+
+
+
+<!-- Help Link -->
+<a href="#" id="help-link">Need Alternative Plans?</a>
+
+<!-- Chatbot Popup -->
+<div id="chatbot-popup" class="hidden">
+    <div id="chatbot-content">
+        <div id="chatbot-header">
+            <span>Chatbot Help</span>
+            <button id="close-chatbot">X</button>
+        </div>
+        <ul id="chatbot-messages"></ul>
+        <input type="text" id="chatbot-input" placeholder="Ask me anything...">
+        <button id="send-chatbot-message">Send</button>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,317 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 10;
+}
+
+#map {
+    height: 94%;
+    margin-top: 52px; /* Add some space between items */
+    width: 60%; /* Map takes up 60% of the screen */
+    float: right; /* Aligns the map to the right */
+}
+
+#content {
+    height: 100%;
+    width: 40%; /* Itinerary takes up 40% of the screen */
+    overflow-y: auto; /* Adds scroll to the content div if needed */
+    float: left; /* Aligns the itinerary to the left */
+}
+
+#itinerary-form {
+    text-align: center; /* Center the form contents horizontally */
+}
+
+/* Style for itinerary items */
+.itinerary-item {
+    border-bottom: 1px solid #ccc; /* Add a border between items */
+    padding: 10px 0; /* Add some vertical padding to each item */
+    margin-bottom: 10px; /* Add some space between items */
+    position: relative; /* Allows positioning of the delete button */
+}
+
+.delete-button {
+    position: absolute;
+    margin-right: 10px;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: #ff0000;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.rain-button {
+    position: absolute;
+    margin-right: 10px;
+    margin-top: 40px;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: blue;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+
+  .day {
+    display: none;
+}
+
+.day.active {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: left;
+    font-size: 16px;
+    margin-left: 12px;
+}
+
+label {
+    text-align: left;
+    margin-left: 10px; /* Adjust as needed */
+    
+}
+
+.itineraryName-label {
+    font-size: 16px;
+    margin-left: 21px;
+}
+
+.itineraryName-input {
+    text-align: left;
+    margin-left: 18px;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 26px;
+    font-size: 16px;
+    width: 323;
+}
+
+.numDays-label {
+    text-align: left;
+    margin-left: 10px; /* Adjust as needed */
+    width: 130px;
+    height: 10px;
+    font-size: 16px;
+}
+
+.numDays-input {
+    text-align: left;
+    margin-left: 10px; /* Adjust as needed */
+    width: 50px;
+    height: 26px;
+    font-size: 16px;
+}
+
+.numDays-button {
+    text-align: center;
+    margin-left: 150px; /* Adjust as needed */
+    width: 120px;
+    height: 35px;
+    font-size: 16px;
+}
+
+.toggle-button-left {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 150px; /* Adjust as needed */
+    width: 120px;
+    height: 26px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.toggle-button-right {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 30px; /* Adjust as needed */
+    width: 120px;
+    height: 26px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.day-heading {
+    font-size: 24px;
+    text-align: center;
+}
+
+.activity-button {
+    display: inline-block;
+    vertical-align: top; /* Align elements vertically */
+    margin-left: 410px; /* Adjust as needed */
+    margin-top: 60px;
+    width: 120px;
+    height: 26px;
+    font-size: 16px;
+}
+
+#openModalBtn {
+    margin-left: 150;
+    padding: 10px 25px; /* Increase padding */
+    background-color: #f48023; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Add cursor pointer */
+    font-size: 12px;
+}
+
+#openModalBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+.itinerary-item {
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.startdate-label {
+    width: 200px; 
+    height: 30px;
+    font-size: 16px;
+}
+
+.startdate-input {
+    margin-right: 300px;
+    margin-bottom: 5px;
+    width: 200px; 
+    height: 30px;
+    font-size: 16px;
+}
+
+.enddate-label {
+    width: 200px; 
+    height: 30px;
+    font-size: 16px;
+}
+
+.enddate-input {
+    margin-right: 300px;
+    margin-bottom: 5px;
+    width: 200px; 
+    height: 30px;
+    font-size: 16px;
+}
+
+
+
+
+
+.controls {
+    margin-bottom: 100px;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    transform: translate(20%, 25%); /* Center the modal */
+    width: 70%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+}
+  
+/* Modal Content */
+#overlay {
+    display: none;
+    position: fixed;
+    z-index: 999; /* Ensure it's above other content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+}
+.modal.active + #overlay {
+    display: block;
+}
+  
+.modal-content {
+    width: 80%; /* Adjust the width as needed */
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px; /* Add padding */
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.modal-content h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.modal-content button {
+    padding: 10px 20px; /* Add padding */
+    background-color: #f48023;
+    color: #fff;
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 16px;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Modal Content Ends Here */

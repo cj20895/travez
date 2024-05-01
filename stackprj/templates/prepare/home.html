@@ -1,0 +1,58 @@
+<!-- prepare/home.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Prepare for Your Trip</h1>
+<p>Select an option to learn more about your destination.</p>
+
+
+
+<!--<a href=""><button>Cultural Norms</button></a>
+<a href=""><button>Transportation</button></a> -->
+<section class="for-developers">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">Everything you need to know
+            </h2>
+            <div class="section-line"></div>
+            <p class="section-description">Make sure you're prepared for your trip by getting all the information you need on your destination, prior to your travel. It's just part of making travel for you, EZ. 
+            </p>
+        </div>
+        <div class="options">
+            <div class="option">
+                <div class="option-icon">
+                    <img src="https://cdn.sstatic.net/Img/home/public-qa.svg?v=d82acaa7df9f" alt="Public Q & A">
+                </div>
+                <div class="option-title">
+                    Cultural Norms
+                </div>
+                <div class="option-description">
+                   Understand the customs of the country so the trip is more comfortable for you. Learn what other's had to say, gain keyphrases, and feel less like an outsider.
+                </div>
+                <div class="option-button">
+                    <a href="{% url 'prepare:question-lists' %}" class="option-link btn btn-dark-blue">
+                        Browse by city
+                    </a>
+                </div>
+            </div>
+            <div class="option">
+                <div class="option-icon">
+                    <img src="https://cdn.sstatic.net/Img/home/private-qa.svg?v=2c1de180b6d7" alt="Private Q & A">
+                </div>
+                <div class="option-title">
+                    Transportation
+                </div>
+                <div class="option-description">
+                   Learn about the transportation options offered in each city. Figure out how public transportation works, what the fares look like, and when it's best to use. 
+                </div>
+                <div class="option-button">
+                    <a href= "/rides" class="option-link btn btn-orange">
+                        Browse by city
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+ </section>
+ 
+{% endblock %}
