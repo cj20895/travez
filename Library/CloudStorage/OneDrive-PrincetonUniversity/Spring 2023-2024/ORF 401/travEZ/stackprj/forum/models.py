@@ -17,7 +17,7 @@ Base = declarative_base()
 
 # NEED TO EXPORT DATABASE URL
 
-# export DATABASE_URL=postgresql://fiosxuxc:SB_KyyR3331lTjt8SJZWJmunVk4cGk1i@kashin.db.elephantsql.com/fiosxuxc
+# export   DATABASE_URL=postgresql://fiosxuxc:SB_KyyR3331lTjt8SJZWJmunVk4cGk1i@kashin.db.elephantsql.com/fiosxuxc
 
 
 # database_url = os.getenv('DATABASE_URL', 'postgresql://fiosxuxc:SB_KyyR3331lTjt8SJZWJmunVk4cGk1i@kashin.db.elephantsql.com/fiosxuxc')
