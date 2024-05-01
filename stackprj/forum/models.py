@@ -1,11 +1,11 @@
 
 # Create your models here.
-from sqlalchemy import Column, ForeignKey, String, Integer, Boolean, Float, DateTime, create_engine
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy import Column, ForeignKey, String, Integer, Boolean, Float, create_engine
+from sqlalchemy.orm import declarative_base, relationship, column_property
+from sqlalchemy.sql import select, func
 import uuid
 import os
-from sqlalchemy import Column, ForeignKey, String, Integer, Float, Boolean, create_engine
-from sqlalchemy.orm import declarative_base, relationship
+
 import collections
 
 from guid import GUID
@@ -23,44 +23,6 @@ Base = declarative_base()
 # database_url = os.getenv('DATABASE_URL', 'postgresql://fiosxuxc:SB_KyyR3331lTjt8SJZWJmunVk4cGk1i@kashin.db.elephantsql.com/fiosxuxc')
 
 
-class Space(Base):
-    __tablename__ = 'spaces'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    type = Column(String)
-    location = Column(String)
-    capacity = Column(Integer)
-    numreviews = Column(Integer)
-    rating = Column(Float, nullable=True)
-    numvisits = Column(Integer)
-    approved = Column(Boolean, default=True)
-    avgcleanliness = Column(Float, nullable=True)
-    avgnoise = Column(Float, nullable=True)
-    avgprivacy = Column(Float, nullable=True)
-    avglighting = Column(Float, nullable=True)
-    avgamenities = Column(Float, nullable=True)
-    # Relationships
-    reviews = relationship("Review", cascade="all, delete", back_populates="space")
-    amenities = relationship("Amenity", cascade="all,delete", back_populates="space")
-    tags = relationship("Tag", cascade="all,delete", back_populates="space")
-
-    def to_json(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "type": self.type,
-            "location": self.location,
-            "capacity": self.capacity,
-            "numreviews": self.numreviews,
-            "rating": self.rating,
-            "numvisits": self.numvisits,
-            "approved": self.approved,
-            "cleanliness": self.avgcleanliness,
-            "noisiness": self.avgnoise,
-            "privacy": self.avgprivacy,
-            "lighting": self.avglighting,
-            "amenities_rating": self.avgamenities,
-        }
 
 class Review(Base):
     __tablename__ = 'reviews'
@@ -92,6 +54,60 @@ class Review(Base):
             'tags': [tag.to_json() for tag in self.tags],
             'amenities': [amenity.to_json() for amenity in self.amenities]
         }
+
+
+
+class Space(Base):
+    __tablename__ = 'spaces'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    type = Column(String)
+    location = Column(String)
+    capacity = Column(Integer)
+    numreviews = Column(Integer)
+    rating = Column(Float, nullable=True)
+    numvisits = Column(Integer)
+    approved = Column(Boolean, default=True)
+    avgcleanliness = Column(Float, nullable=True)
+    avgnoise = Column(Float, nullable=True)
+    avgprivacy = Column(Float, nullable=True)
+    avglighting = Column(Float, nullable=True)
+    avgamenities = Column(Float, nullable=True)
+    # Relationships
+    reviews = relationship("Review", cascade="all, delete", back_populates="space")
+    amenities = relationship("Amenity", cascade="all,delete", back_populates="space")
+    tags = relationship("Tag", cascade="all,delete", back_populates="space")
+        
+    # Calculate average rating using a column property
+    # average_rating = column_property(select([func.coalesce(func.avg(Review.rating), 0)]).where(Review.space_id == id).correlate_except(Review))
+    # average_rating = column_property(
+    #     select([func.coalesce(func.avg(Review.rating), 0).label('average_rating')])
+    #     .where(Review.space_id == id)
+    #     .correlate_except(Review)
+    #     .scalar_subquery()
+    # )
+
+
+    def to_json(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "type": self.type,
+            "location": self.location,
+            "capacity": self.capacity,
+            "numreviews": self.numreviews,
+            "rating": self.rating,
+            "numvisits": self.numvisits,
+            "approved": self.approved,
+            "cleanliness": self.avgcleanliness,
+            "noisiness": self.avgnoise,
+            "privacy": self.avgprivacy,
+            "lighting": self.avglighting,
+            "amenities_rating": self.avgamenities,
+            # "average_rating": self.average_rating,
+
+        }
+
 
 class Tag(Base):
     __tablename__ = 'tags'

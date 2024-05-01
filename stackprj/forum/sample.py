@@ -5,6 +5,8 @@ from models import Base, Space  # Ensure your models are correctly imported
 
 # Define the sample data
 new_york_landmarks = [
+    {"name": "Tesla Gigafactory Nevada", "type": "Factory", "location": "Electric Ave, Sparks, NV", "capacity": 7000, "approved": True},
+    {"name": "SpaceX Starbase", "type": "Aerospace Facility", "location": "Boca Chica, TX", "capacity": 3000, "approved": True},
     {"name": "Statue of Liberty", "type": "Monument", "location": "New York Harbor", "capacity": 5000, "approved": True},
     {"name": "Grand Central Station", "type": "Transport Hub", "location": "89 E 42nd Street", "capacity": 75000, "approved": True},
     {"name": "Empire State Building", "type": "Skyscraper", "location": "350 5th Avenue", "capacity": 20000, "approved": True},
@@ -25,6 +27,9 @@ if __name__ == "__main__":
     
     # Create all tables if they don't exist
     Base.metadata.create_all(engine)
+
+    # Clear all existing data from the Space table
+    session.query(Space).delete()
 
     # Populate the database with New York City landmarks
     for landmark in new_york_landmarks:
